@@ -8,4 +8,7 @@
     <string name="welcome_text">Welcome to SoundBagel!</string>
     <string name="login">Login</string>
     <color name="blue">#41F79F</color>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
 </resources>

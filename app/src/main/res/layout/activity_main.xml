@@ -42,29 +42,31 @@
         android:text="@string/login"
         android:onClick="login"
         android:id="@+id/button"
+        android:background="@drawable/rounded_edittext"
         android:layout_marginBottom="20dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/userName"
-        android:hint="Username"
         android:ems="10"
+        android:hint="Username"
+        android:background="@drawable/rounded_edittext"
         android:layout_above="@+id/button"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="70dp" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
         android:hint="Password"
         android:id="@+id/userPassword"
         android:layout_above="@+id/button"
-
+        android:background="@drawable/rounded_edittext"
         android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true" />
 
