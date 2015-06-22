@@ -29,6 +29,8 @@ public class MapsActivity extends ActionBarActivity {
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
     private String mActivityTitle;
+
+    private Player p;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,10 +42,12 @@ public class MapsActivity extends ActionBarActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         mActivityTitle = getTitle().toString();
+        p = new Player();
 
         //Subroutines
         setUpSideMenu();
         setUpMapIfNeeded();
+        p.play(60603294,  this);
     }
 
     @Override
