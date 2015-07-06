@@ -31,12 +31,14 @@ import java.util.concurrent.ExecutionException;
 public class Player {
     private MediaPlayer mp;
     public Context m;
+    private int lastSongIDPlayed;
 
     public Player(){
         mp = new MediaPlayer();
     }
 
     public void play(Integer songID, Context m){
+        stop();
         getSong(songID);
         this.m = m;
     }
@@ -69,6 +71,10 @@ public class Player {
         Toast.makeText(m.getApplicationContext(), "Now playing: " + name, Toast.LENGTH_SHORT).show();
     }
 
+    public int getLastSongIDPlayed(){
+        return lastSongIDPlayed;
+    }
+
 
     class RetrieveSong extends AsyncTask<Integer, String[], String[]> {
 
@@ -80,15 +86,16 @@ public class Player {
             SoundCloud soundcloud = new SoundCloud(id, secret);
 
             Track t = soundcloud.get("tracks/"+urls[0]);
-
+            lastSongIDPlayed = urls[0];
             String[] arr = {t.getStreamUrl(), t.getTitle()};
             return arr;
         }
 
         protected void onPostExecute(String[] arr) {
             playSong(arr);
-
         }
+
+
     }
 }
 
