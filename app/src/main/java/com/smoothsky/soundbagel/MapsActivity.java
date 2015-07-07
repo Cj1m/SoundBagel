@@ -52,7 +52,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MapsActivity extends ActionBarActivity {
-    private final String SERVER_IP = R.string.server_ip+"";
+    private String SERVER_IP;
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
     private ListView mDrawerList;
     private ArrayAdapter<String> mAdapter;
@@ -70,6 +70,7 @@ public class MapsActivity extends ActionBarActivity {
         setContentView(R.layout.activity_maps);
 
         //Set variables
+        SERVER_IP =  "192.168.1.27";/*getResources().getString(R.string.server_ip);*/
         String username = getIntent().getStringExtra("USERNAME");
         mDrawerList = (ListView) findViewById(R.id.navList);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -296,7 +297,7 @@ public class MapsActivity extends ActionBarActivity {
 
     public void getBagelsFromServer(LatLng latLng){
         String SERVER_URL = "http://"+SERVER_IP+"/soundbagelbackend/getnearbybagels.php";
-        int radius = 100;
+        int radius = 1000000000;
         List<NameValuePair> nameValuePairs;
         DefaultHttpClient   httpclient;
         HttpPost httppost;

@@ -37,9 +37,9 @@ public class User extends Service implements LocationListener{
     private double longitude;
     private double radius;
 
-    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 2; // 2 metres
+    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 1; // 2 metres
 
-    private static final long MIN_TIME_BW_UPDATES = 1000 * 10; // 10 seconds
+    private static final long MIN_TIME_BW_UPDATES = 500; // 1/2 seconds
 
     // Declaring a Location Manager
     protected LocationManager locationManager;

@@ -35,8 +35,8 @@ import java.util.List;
 
 public class MainActivity extends Activity{
     //Declare Variables
-    private final String SERVER_IP = R.string.server_ip+"";
-    private final String LOGIN_URL = "http://"+SERVER_IP+"/SoundBagelBackend/login.php";
+    private String SERVER_IP;
+    private String LOGIN_URL;
 
     private HttpPost httppost;
     private StringBuffer buffer;
@@ -49,6 +49,9 @@ public class MainActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SERVER_IP = "192.168.1.27";/*getResources().getString(R.string.server_ip);*/
+        LOGIN_URL = "http://"+SERVER_IP+"/SoundBagelBackend/login.php";
     }
 
     public void login(View view){
