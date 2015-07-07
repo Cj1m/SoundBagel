@@ -62,12 +62,12 @@ public class MainActivity extends Activity{
         final String password = passwordBox.getText().toString();
 
         if(username.trim().length() > 0 && password.trim().length() > 0){
+            Toast.makeText(getApplicationContext(), "Logging in...", Toast.LENGTH_LONG).show();
             new Thread(new Runnable() {
                 public void run(){
                     tryLogin(username, password);
                 }
             }).start();
-
         }else{
             Toast.makeText(getApplicationContext(), "Please enter login details", Toast.LENGTH_LONG).show();
         }
@@ -75,7 +75,6 @@ public class MainActivity extends Activity{
 
     private void tryLogin(final String username, String password){
         System.out.println("Logging in!");
-
         try{
 
             httpclient=new DefaultHttpClient();
