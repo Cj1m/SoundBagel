@@ -17,6 +17,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:layout_gravity="left"
+            android:layout_marginLeft="5dp"
             android:text="No song playing"
             android:textSize="20dp"
             android:layout_alignParentTop="true"
@@ -26,7 +27,9 @@
         <ToggleButton
             android:layout_width="68dp"
             android:layout_height="match_parent"
-            android:text="|>"
+            android:textOn="▮▮"
+            android:textOff="▶"
+            android:textSize="32dp"
             android:id="@+id/playButton"
             android:layout_gravity="right"
             android:checked="false"
@@ -40,6 +43,9 @@
             android:text="New ToggleButton"
             android:checked="false"
             android:id="@+id/likeButton"
+            android:textOn="♥"
+            android:textOff="♥"
+            android:textSize="32dp"
             android:layout_alignParentTop="true"
             android:layout_toLeftOf="@+id/playButton"
             android:layout_toStartOf="@+id/playButton"
@@ -47,6 +53,59 @@
             android:clickable="true" />
 
     </RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        tools:context=".MainActivity"
+        android:id="@+id/songInfoContainer"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollViewForInfo"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" >
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Loading bagel info..."
+                android:id="@+id/textViewInfo"
+                android:gravity="center_horizontal"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity"
+        android:id="@+id/playlistContainer"
+        android:layout_below="@+id/songInfoContainer"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listViewPlaylist"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true" />
+    </RelativeLayout>
+
 
 
 </RelativeLayout>

@@ -50,7 +50,7 @@ public class MainActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SERVER_IP = "192.168.1.27";/*getResources().getString(R.string.server_ip);*/
+        SERVER_IP = getResources().getString(R.string.server_ip);
         LOGIN_URL = "http://"+SERVER_IP+"/SoundBagelBackend/login.php";
     }
 
@@ -71,9 +71,6 @@ public class MainActivity extends Activity{
         }else{
             Toast.makeText(getApplicationContext(), "Please enter login details", Toast.LENGTH_LONG).show();
         }
-
-
-        //startActivity(mapIntent);
     }
 
     private void tryLogin(final String username, String password){

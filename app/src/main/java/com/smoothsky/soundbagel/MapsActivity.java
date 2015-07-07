@@ -70,7 +70,7 @@ public class MapsActivity extends ActionBarActivity {
         setContentView(R.layout.activity_maps);
 
         //Set variables
-        SERVER_IP =  "192.168.1.27";/*getResources().getString(R.string.server_ip);*/
+        SERVER_IP =  getResources().getString(R.string.server_ip);
         String username = getIntent().getStringExtra("USERNAME");
         mDrawerList = (ListView) findViewById(R.id.navList);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
