@@ -12,10 +12,12 @@ import android.net.ParseException;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,6 +55,8 @@ public class Player {
     private ArrayList<String> itemsArray;
     private ArrayAdapter<String> itemsAdapter;
     private InputStream artIs;
+    private SeekBar seekBar;
+    private Handler seekbarHandler = new Handler();
 
     public Player(Context m, MapsActivity act){
         this.m = m;
@@ -65,6 +69,41 @@ public class Player {
         playlistListView = (ListView) act.findViewById(R.id.listViewPlaylist);
 
         playlistListView.setAdapter(itemsAdapter);
+
+        seekBar = (SeekBar) act.findViewById(R.id.seekBar);
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if(mp != null && fromUser){
+                    mp.seekTo(progress);
+                    seekBar.setProgress(progress);
+                    
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        act.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if(mp != null){
+                    int currentSongPos = mp.getCurrentPosition();
+                    seekBar.setProgress(currentSongPos);
+                }
+                seekbarHandler.postDelayed(this, 1000);
+            }
+        });
     }
 
     public void addSongToPlaylist(int songID){
@@ -131,6 +170,7 @@ public class Player {
         }
 
         mp.start();
+        seekBar.setMax(mp.getDuration());
         //Toast.makeText(m.getApplicationContext(), "Now playing: " + name, Toast.LENGTH_SHORT).show();
     }
 
@@ -166,6 +206,7 @@ public class Player {
     public int getLastSongIDPlayed(){
         return lastSongIDPlayed;
     }
+
 
 
     class RetrieveSong extends AsyncTask<Integer, String[], String[]> {
