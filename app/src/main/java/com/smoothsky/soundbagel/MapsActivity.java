@@ -12,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.text.InputType;
+import android.util.DisplayMetrics;
 import android.util.JsonReader;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
@@ -79,8 +81,11 @@ public class MapsActivity extends ActionBarActivity {
         mActivityTitle = getTitle().toString();
 
         usr = new User(this, username);
-        p = new Player();
+        p = new Player(getApplicationContext(), this);
         shelf = new BagelShelf();
+        //DisplayMetrics displaymetrics = new DisplayMetrics();
+        //getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        //((TextView)findViewById(R.id.currentlyPlaying)).setWidth(displaymetrics.widthPixels - findViewById(R.id.playButton).getWidth() - findViewById(R.id.likeButton).getWidth());
 
         //Subroutines
         setUpSideMenu();
@@ -96,10 +101,11 @@ public class MapsActivity extends ActionBarActivity {
                 final String usrname = usr.username;
                 new Thread(new Runnable() {
                     public void run(){
-                        sendBagelToServer(latlng, 206664622, usrname);
+                        sendBagelToServer(latlng, 201315263, usrname);
                     }
                 }).start();
 
+                //p.addSongToPlaylist(201315263);
                 //Bagel b = new Bagel();
                 //shelf.addBagel(b);
                 //b.bagelCircle = mMap.addGroundOverlay(b.bagelCircleOptions);
@@ -213,7 +219,8 @@ public class MapsActivity extends ActionBarActivity {
         if(b != null){
             if(p.getLastSongIDPlayed() != b.getSongID()) {
                 int id = b.getSongID();
-                p.play(id, this);
+                //p.play(id, this);
+                p.addSongToPlaylist(id);
             }
         }
     }

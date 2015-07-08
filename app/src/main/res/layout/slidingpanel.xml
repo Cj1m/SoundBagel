@@ -12,9 +12,14 @@
         android:id="@+id/relativeLayout">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/currentlyPlaying"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:ellipsize="marquee"
+            android:scrollHorizontally="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:singleLine="true"
             android:gravity="center"
             android:layout_gravity="left"
             android:layout_marginLeft="5dp"
@@ -22,7 +27,9 @@
             android:textSize="20dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/likeButton"
+            android:layout_toStartOf="@+id/likeButton" />
 
         <ToggleButton
             android:layout_width="68dp"
@@ -57,17 +64,23 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="140dp"
         android:orientation="vertical"
         tools:context=".MainActivity"
         android:id="@+id/songInfoContainer"
         android:layout_below="@+id/relativeLayout"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
+        <ImageView
+            android:id="@+id/infoBackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#A9B0B3"
+            android:scaleType="centerCrop" />
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/scrollViewForInfo"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" >
@@ -77,10 +90,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Loading bagel info..."
+                android:background="#99FFFFFF"
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:autoLink="web"
+                android:textColorLink="#0645AD"
                 android:id="@+id/textViewInfo"
                 android:gravity="center_horizontal"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_gravity="center_vertical" />
         </ScrollView>
 
 
@@ -103,6 +120,7 @@
             android:layout_height="match_parent"
             android:id="@+id/listViewPlaylist"
             android:layout_centerHorizontal="true"
+            android:background="#404749"
             android:layout_alignParentTop="true" />
     </RelativeLayout>
 
