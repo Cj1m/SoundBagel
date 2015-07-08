@@ -79,7 +79,7 @@ public class Player {
                 if(mp != null && fromUser){
                     mp.seekTo(progress);
                     seekBar.setProgress(progress);
-                    
+
                 }
             }
 

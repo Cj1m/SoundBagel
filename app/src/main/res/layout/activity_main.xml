@@ -45,7 +45,10 @@
         android:background="@drawable/rounded_edittext"
         android:layout_marginBottom="20dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:elegantTextHeight="false"
+        android:textColor="#425797" />
 
     <EditText
         android:layout_width="200dp"
@@ -53,10 +56,16 @@
         android:id="@+id/userName"
         android:ems="10"
         android:hint="Username"
+        android:textColorHint="#A9BCF5"
         android:background="@drawable/rounded_edittext"
         android:layout_above="@+id/button"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="70dp" />
+        android:layout_marginBottom="70dp"
+        android:textIsSelectable="false"
+        android:textColor="#425797"
+        android:password="false"
+        android:elegantTextHeight="false"
+        android:autoText="false" />
 
     <EditText
         android:layout_width="200dp"
@@ -64,11 +73,13 @@
         android:inputType="textPassword"
         android:ems="10"
         android:hint="Password"
+        android:textColorHint="#A9BCF5"
         android:id="@+id/userPassword"
         android:layout_above="@+id/button"
         android:background="@drawable/rounded_edittext"
         android:layout_marginBottom="20dp"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#425797" />
 
     <ImageView
         android:layout_width="fill_parent"

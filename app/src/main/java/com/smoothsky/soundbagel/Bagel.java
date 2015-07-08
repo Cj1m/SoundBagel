@@ -25,7 +25,7 @@ public class Bagel {
         this.radius = radius;
         this.songID = songID;
         bagelCircleOptions = new GroundOverlayOptions()
-                .image(BitmapDescriptorFactory.fromResource(R.drawable.bagel))
+                .image(BitmapDescriptorFactory.fromResource(R.drawable.bagel2))
                 .position(pos, radius*2);
         this.ID = ID;
         this.likes = likes;
