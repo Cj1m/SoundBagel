@@ -53,11 +53,11 @@
             android:textOn="♥"
             android:textOff="♥"
             android:textSize="32dp"
-            android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/playButton"
             android:layout_toStartOf="@+id/playButton"
             android:layout_alignParentBottom="true"
-            android:clickable="true" />
+            android:clickable="true"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/playButton" />
 
     </RelativeLayout>
 
@@ -86,19 +86,23 @@
             android:layout_centerHorizontal="true" >
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Loading bagel info..."
-                android:background="#99FFFFFF"
-                android:textColor="#000000"
-                android:textSize="16dp"
-                android:autoLink="web"
-                android:textColorLink="#0645AD"
-                android:id="@+id/textViewInfo"
-                android:gravity="center_horizontal"
-                android:layout_gravity="center_vertical" />
         </ScrollView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Loading bagel info..."
+            android:background="#99FFFFFF"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            android:autoLink="web"
+            android:textColorLink="#0645AD"
+            android:id="@+id/textViewInfo"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_vertical"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
 
     </RelativeLayout>
@@ -120,7 +124,7 @@
             android:layout_height="match_parent"
             android:id="@+id/listViewPlaylist"
             android:layout_centerHorizontal="true"
-            android:background="#404749"
+            android:background="#BDBDBD"
             android:layout_alignParentTop="true" />
     </RelativeLayout>
 
