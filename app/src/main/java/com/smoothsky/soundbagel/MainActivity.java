@@ -45,6 +45,8 @@ public class MainActivity extends Activity{
     private List<NameValuePair> nameValuePairs;
     private ProgressDialog dialog = null;
 
+    //TextView sound,bagel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +54,16 @@ public class MainActivity extends Activity{
 
         SERVER_IP = getResources().getString(R.string.server_ip);
         LOGIN_URL = "http://"+SERVER_IP+"/SoundBagelBackend/login.php";
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        //sound=(TextView)findViewById(R.id.soundTxt);
+        //bagel=(TextView)findViewById(R.id.bagelTxt);
+
+        //Typeface c_goth= Typeface.createFromAsset(getAssets(), "fonts/GOTHIC.ttf"); //NOT WORKING
+        //sound.setTypeface(c_goth);
+        //bagel.setTypeface(c_goth);
     }
 
     public void login(View view){
@@ -143,4 +155,5 @@ public class MainActivity extends Activity{
 
         return super.onOptionsItemSelected(item);
     }
+
 }

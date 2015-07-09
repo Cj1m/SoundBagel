@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SoundBagel</string>
+    <string name="app_name">SoundBagel.</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_main">MainActivity</string>
 
@@ -8,6 +8,16 @@
     <string name="welcome_text">Welcome to SoundBagel!</string>
     <string name="login">Login</string>
     <color name="blue">#41F79F</color>
+
+    <string name="sound">Sound</string>
+    <string name="bagel">Bagel.</string>
+
+    <string name="discover">Discover music</string>
+    <string name="the_way">they way you</string>
+    <string name="never_thought">never thought</string>
+    <string name="you_would">you would.</string>
+
+    <string name="su">SIGN UP</string>
 
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
