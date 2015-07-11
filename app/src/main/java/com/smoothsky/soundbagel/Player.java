@@ -6,6 +6,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.net.ParseException;
@@ -72,14 +76,14 @@ public class Player {
 
         seekBar = (SeekBar) act.findViewById(R.id.seekBar);
 
+        final MapsActivity mAct =act;
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
-
+            @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if(mp != null && fromUser){
                     mp.seekTo(progress);
                     seekBar.setProgress(progress);
-
                 }
             }
 

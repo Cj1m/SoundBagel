@@ -37,6 +37,7 @@ public class MainActivity extends Activity{
     //Declare Variables
     private String SERVER_IP;
     private String LOGIN_URL;
+    private TextView sound,bagel;
 
     private HttpPost httppost;
     private StringBuffer buffer;
@@ -45,7 +46,7 @@ public class MainActivity extends Activity{
     private List<NameValuePair> nameValuePairs;
     private ProgressDialog dialog = null;
 
-    //TextView sound,bagel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,9 +62,10 @@ public class MainActivity extends Activity{
         //sound=(TextView)findViewById(R.id.soundTxt);
         //bagel=(TextView)findViewById(R.id.bagelTxt);
 
-        //Typeface c_goth= Typeface.createFromAsset(getAssets(), "fonts/GOTHIC.ttf"); //NOT WORKING
+        //Typeface c_goth= Typeface.createFromAsset(getAssets(), "fonts/gothic.ttf");
+        //Typeface b_goth= Typeface.createFromAsset(getAssets(), "fonts/gothicb.ttf");
         //sound.setTypeface(c_goth);
-        //bagel.setTypeface(c_goth);
+        //bagel.setTypeface(b_goth);
     }
 
     public void login(View view){

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/infoBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#A9B0B3"
+        android:scaleType="centerCrop" />
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="vertical"
+        tools:context=".MainActivity"
+        android:background="#4D000000"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/relativeLayout">
+
+        <TextView
+            android:id="@+id/currentlyPlaying"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:gravity="center"
+            android:layout_gravity="left"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="7dp"
+            android:text="No song playing"
+            android:textSize="24dp"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/currentlyPlayingArtist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:gravity="center"
+            android:layout_gravity="left"
+            android:layout_below="@+id/currentlyPlaying"
+            android:layout_marginLeft="5dp"
+            android:text="artist"
+            android:textSize="20dp"
+            android:textColor="#FFFFFF" />
+
+        <ToggleButton
+            android:layout_width="61dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="7dp"
+            android:id="@+id/playButton"
+            android:textOn=""
+            android:textOff=""
+            android:background="@drawable/play"
+            android:layout_marginRight="5dp"
+            android:layout_alignParentRight="true" />
+
+        <ToggleButton
+            android:layout_width="61dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="7dp"
+            android:id="@+id/faveButton"
+            android:textOn=""
+            android:textOff=""
+            android:background="@drawable/favebutton"
+            android:layout_toLeftOf="@+id/playButton"
+            android:layout_marginRight="5dp"/>
+
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_below="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/line"
+        android:id="@+id/spacerLine" />
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        tools:context=".MainActivity"
+        android:background="#00000000"
+        android:id="@+id/songInfoContainer"
+        android:layout_below="@+id/spacerLine"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:id="@+id/songArt"
+            android:src="@drawable/defaultart"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="vertical"
+            tools:context=".MainActivity"
+            android:background="#4D000000"
+            android:id="@+id/songDescription"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="50dp"
+            android:layout_toRightOf="@+id/songArt"
+            android:layout_toEndOf="@+id/songArt"
+            android:layout_alignBottom="@+id/songArt">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Info"
+                android:textColor="#FFFFFF"
+                android:textSize="16dp"
+                android:id="@+id/textViewInfoHeader"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/scrollView"
+                android:layout_below="@+id/textViewInfoHeader" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I say boom boom boom, let me hear you say 'wayo' snipars is the best 360 noscope club on the xxxinternetxxx you fedora-wearing scrublords cannot comprehend the euphoria I have experienced while watching xxxSniparsxxx."
+                    android:textColor="#FFFFFF"
+                    android:textSize="14dp"
+                    android:id="@+id/textViewInfo"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+            </ScrollView>
+
+        </RelativeLayout>
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context=".MainActivity"
+            android:background="#4D000000"
+            android:id="@+id/controls"
+            android:layout_alignLeft="@+id/songDescription"
+            android:layout_alignStart="@+id/songDescription"
+            android:layout_alignBottom="@+id/songArt">
+
+            <Button
+                android:layout_marginLeft="10dp"
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                android:text=""
+                android:background="@drawable/skipbutton"
+                android:id="@+id/skipButton"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"/>
+            <Button
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                android:text=""
+                android:background="@drawable/smallfavebutton"
+                android:id="@+id/smallfaveButton"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"/>
+            <Button
+                android:layout_marginRight="10dp"
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                android:text=""
+                android:background="@drawable/skipbutton"
+                android:id="@+id/soundcloudButton"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity"
+        android:id="@+id/playlistContainer"
+        android:layout_below="@+id/songInfoContainer"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listViewPlaylist"
+            android:layout_centerHorizontal="true"
+            android:background="#BDBDBD"
+            android:layout_alignParentTop="true" />
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>
