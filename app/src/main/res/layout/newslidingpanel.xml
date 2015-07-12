@@ -92,7 +92,8 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:orientation="vertical"
         tools:context=".MainActivity"
         android:background="#00000000"
@@ -204,27 +205,94 @@
                 android:layout_marginTop="5dp"/>
         </RelativeLayout>
 
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical"
+            tools:context=".MainActivity"
+            android:background="#4D000000"
+            android:id="@+id/seekBarControls"
+            android:layout_below="@+id/songArt">
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/seekBar"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="0:00"
+                android:textColor="#FFFFFF"
+                android:id="@+id/songCurrentTime"
+                android:layout_marginLeft="14dp"
+                android:layout_marginBottom="5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="0:00"
+                android:textColor="#FFFFFF"
+                android:id="@+id/songEndTime"
+                android:layout_marginRight="14dp"
+                android:layout_marginBottom="5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true" />
+
+
+        </RelativeLayout>
+
+
+
     </RelativeLayout>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         tools:context=".MainActivity"
+        android:background="#4D000000"
         android:id="@+id/playlistContainer"
         android:layout_below="@+id/songInfoContainer"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Up Next:"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:id="@+id/upNextText"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="2dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true" />
 
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/listViewPlaylist"
             android:layout_centerHorizontal="true"
-            android:background="#BDBDBD"
-            android:layout_alignParentTop="true" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@android:color/transparent"
+            android:cacheColorHint="@android:color/transparent"
+            android:divider="#FFFFFF"
+            android:layout_below="@+id/upNextText" />
     </RelativeLayout>
 
 
