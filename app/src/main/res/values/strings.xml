@@ -22,5 +22,5 @@
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
 
-    <string name="server_ip">192.168.1.27</string>
+    <string name="server_ip">192.168.1.17</string>
 </resources>
