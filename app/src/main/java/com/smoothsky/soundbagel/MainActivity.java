@@ -100,7 +100,7 @@ public class MainActivity extends Activity{
             nameValuePairs.add(new BasicNameValuePair("password", password));
             httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
             //Execute HTTP Post Request
-            response=httpclient.execute(httppost);
+            //response=httpclient.execute(httppost);
 
 
             ResponseHandler<String> responseHandler = new BasicResponseHandler();

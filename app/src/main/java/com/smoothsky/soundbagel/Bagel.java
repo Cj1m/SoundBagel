@@ -43,4 +43,7 @@ public class Bagel {
     }
     public String getOwner(){return owner;}
     public int getLikes(){return likes;}
+    public void setSongID(int songID){
+        this.songID = songID;
+    }
 }

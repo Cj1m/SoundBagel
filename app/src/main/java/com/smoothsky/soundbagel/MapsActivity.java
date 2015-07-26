@@ -367,6 +367,9 @@ public class MapsActivity extends ActionBarActivity {
                                 if(!shelf.bagelExists(b)){
                                     shelf.addBagel(b);
                                     b.bagelCircle = mMap.addGroundOverlay(b.bagelCircleOptions);
+                                }else{
+                                    //Incase song id has changed
+                                    shelf.setBagelSongID(shelf.getArrayId(b),songID);
                                 }
 
                             } catch (JSONException e) {
