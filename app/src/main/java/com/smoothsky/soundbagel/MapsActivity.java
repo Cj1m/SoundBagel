@@ -217,6 +217,7 @@ public class MapsActivity extends ActionBarActivity {
     public void playMusicIfInBagel(LatLng user){
         Bagel b = checkIfInBagel(user);
         if(b != null){
+            System.out.println("Last song: " + p.getLastSongIDPlayed() +  "  this song: " + b.getSongID());
             if(p.getLastSongIDPlayed() != b.getSongID()) {
                 int id = b.getSongID();
                 //p.play(id, this);
@@ -244,6 +245,7 @@ public class MapsActivity extends ActionBarActivity {
     public boolean intersectsBagel(LatLng user, Bagel b){
         double distanceBetween = getDistance(user,b.getPosition());
 
+        //TODO make this better
         System.out.println(distanceBetween + " radius: " + b.getRadius());
         return (distanceBetween < b.getRadius() + usr.getRadius());
     }
@@ -303,8 +305,8 @@ public class MapsActivity extends ActionBarActivity {
     }
 
     public void getBagelsFromServer(LatLng latLng){
-        String SERVER_URL = "http://"+SERVER_IP+"/soundbagelbackend/getnearbybagels.php";
-        int radius = 1000000000;
+        String SERVER_URL = "http://"+SERVER_IP+"/Bagels/getnearbybagels.php";
+        int radius = 10000;
         List<NameValuePair> nameValuePairs;
         DefaultHttpClient   httpclient;
         HttpPost httppost;
@@ -353,11 +355,11 @@ public class MapsActivity extends ActionBarActivity {
                             try{
                                 int id = oneObject.getInt("id");
                                 double latitude = oneObject.getDouble("lat_pos");
-                                double longitude = oneObject.getDouble("long_pos");
+                                double longitude = oneObject.getDouble("lng_pos");
                                 int bagelRadius = oneObject.getInt("radius");
                                 int songID = oneObject.getInt("song_id");
                                 int likes = oneObject.getInt("likes");
-                                String owner = oneObject.getString("username");
+                                String owner = oneObject.getString("owner");
 
                                 LatLng bagelPos = new LatLng(latitude,longitude);
 

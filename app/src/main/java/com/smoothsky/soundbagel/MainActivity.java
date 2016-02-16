@@ -54,7 +54,7 @@ public class MainActivity extends Activity{
         setContentView(R.layout.activity_main);
 
         SERVER_IP = getResources().getString(R.string.server_ip);
-        LOGIN_URL = "http://"+SERVER_IP+"/SoundBagelBackend/login.php";
+        LOGIN_URL = "http://"+SERVER_IP+"/Authentication/login.php";
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);

@@ -35,6 +35,7 @@ import org.apache.http.HttpStatus;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import de.voidplus.soundcloud.*;
@@ -60,6 +61,7 @@ public class Player {
     private ArrayAdapter<String> itemsAdapter;
     private InputStream artIs;
     private SeekBar seekBar;
+    private TextView currentTime;
     private Handler seekbarHandler = new Handler();
 
     public Player(Context m, MapsActivity act){
@@ -75,6 +77,7 @@ public class Player {
         playlistListView.setAdapter(itemsAdapter);
 
         seekBar = (SeekBar) act.findViewById(R.id.seekBar);
+        currentTime = (TextView) act.findViewById(R.id.songCurrentTime);
 
         final MapsActivity mAct =act;
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
@@ -83,7 +86,15 @@ public class Player {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 if(mp != null && fromUser){
                     mp.seekTo(progress);
+
+                    int seconds = progress / 1000;
+                    int minutes = (int)Math.floor(seconds / 60);
+                    seconds = seconds % 60;
+                    String secs = seconds + "";
+                    if(secs.length() == 1){secs = "0" + secs;}
+
                     seekBar.setProgress(progress);
+                    currentTime.setText(minutes + ":" + secs);
                 }
             }
 
@@ -103,7 +114,14 @@ public class Player {
             public void run() {
                 if(mp != null){
                     int currentSongPos = mp.getCurrentPosition();
+                    int seconds = currentSongPos / 1000;
+                    int minutes = (int)Math.floor(seconds / 60);
+                    seconds = seconds % 60;
+                    String secs = seconds + "";
+                    if(secs.length() == 1){secs = "0" + secs;}
+
                     seekBar.setProgress(currentSongPos);
+                    currentTime.setText(minutes + ":" + secs);
                 }
                 seekbarHandler.postDelayed(this, 1000);
             }
@@ -120,7 +138,8 @@ public class Player {
         String artURL = urls[2];
         String URL = urls[3];
         String artist = urls[4];
-        Song song = new Song(title, songURL, artURL, URL, artist);
+        int duration = Integer.parseInt(urls[5]);
+        Song song = new Song(title, songURL, artURL, URL, artist, duration);
 
         playlist.add(song);
         itemsArray.add(song.getTitle());
@@ -185,7 +204,7 @@ public class Player {
         ((TextView)act.findViewById(R.id.currentlyPlaying)).setText(nextSong.getTitle());
         ((TextView)act.findViewById(R.id.currentlyPlayingArtist)).setText(nextSong.getArtist());
         ((TextView)act.findViewById(R.id.textViewInfo)).setText("Soundcloud URL:\n" + nextSong.getSoundcloudURL() + " \nMore info coming soon!");
-
+        ((TextView)act.findViewById(R.id.songEndTime)).setText(nextSong.getDurationText());
         System.out.println(nextSong);
         Thread getArtThread = new Thread(){
             public void run() {
@@ -228,9 +247,9 @@ public class Player {
             SoundCloud soundcloud = new SoundCloud(id, secret);
 
             Track t = soundcloud.get("tracks/"+urls[0]);
-            //lastSongIDPlayed = urls[0];
+            lastSongIDPlayed = urls[0];
             String artist = t.getUser().getUsername();
-            String[] arr = {t.getStreamUrl(), t.getTitle(), t.getArtworkUrl(), t.getPermalinkUrl(), artist};
+            String[] arr = {t.getStreamUrl(), t.getTitle(), t.getArtworkUrl(), t.getPermalinkUrl(), artist, t.getDuration().toString()};
             return arr;
         }
 
